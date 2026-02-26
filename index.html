@@ -1,162 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Emerging Next Showcase 2026 - Friday March 13</title>
-
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: #fafafa;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  margin: 20px 0 10px;
-  font-size: 2.2em;
-  color: #222;
-}
-
-.subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 25px;
-  font-size: 1.1em;
-}
-
-.section-header {
-  background: #333;
-  color: white;
-  padding: 15px 20px;
-  margin: 30px 0 20px;
-  border-radius: 8px;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-}
-
-.row-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1800px;
-  margin: 0 auto 40px;
-}
-
-.designer {
-  background: white;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.designer h2 {
-  font-size: 1.05em;
-  border-bottom: 2px solid #000;
-  padding-bottom: 6px;
-  margin-bottom: 5px;
-}
-
-.designer h3 {
-  font-size: 0.9em;
-  color: #666;
-  margin-bottom: 4px;
-}
-
-.designer .email {
-  font-size: 0.8em;
-  color: #888;
-  margin-bottom: 12px;
-}
-
-.looks-count {
-  background: #1976d2;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-size: 0.8em;
-  font-weight: bold;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.model {
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 6px;
-  background: #f5f5f5;
-  font-size: 0.9em;
-  border-left: 4px solid #ffa726;
-}
-
-.confirmed {
-  background: #e8f5e9 !important;
-  border-left: 4px solid #2e7d32 !important;
-}
-
-.conflict {
-  background: #ffebee !important;
-  border-left: 4px solid #c62828 !important;
-}
-
-.conflict-3way {
-  background: #ff5252 !important;
-  border-left: 4px solid #b71c1c !important;
-  color: white;
-}
-
-.badge {
-  padding: 3px 8px;
-  border-radius: 3px;
-  font-size: 0.7em;
-  margin-left: 8px;
-  font-weight: bold;
-  color: white;
-}
-
-.pending-badge { background: #ffa726; }
-.confirmed-badge { background: #2e7d32; }
-.conflict-badge { background: #c62828; }
-.conflict-3way-badge { background: #b71c1c; }
-
-@media (max-width: 1200px) {
-  .row-container { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
-  .row-container { grid-template-columns: 1fr; }
-}
-</style>
-</head>
-<body>
-
-<h1>Emerging Next Showcase</h1>
-<div class="subtitle">Friday, March 13, 2026</div>
-
-<div class="section-header">🎨 Redding Fashion Alliance (Group Presentation)</div>
-<div id="rfa" class="row-container"></div>
-
-<div class="section-header">👤 Individual Designer Presentations</div>
-<div id="individual" class="row-container"></div>
-
 <script>
 
-// ==============================
-// DESIGNERS FOR THIS SHOW ONLY
-// ==============================
+// ======================================
+// DESIGNERS FOR EMERGING NEXT (BY EMAIL)
+// ======================================
 const EMERGING_NEXT_DESIGNERS = {
-  "Rena Hembrock": { brand: "Rena Elizabeth", email: "renalizabeth@gmail.com", group: "rfa" },
-  "Julie Kong": { brand: "Sugarcane Sweet Designs", email: "juliekong2121@yahoo.com", group: "rfa" },
-  "Decarol l. Randle": { brand: "DLR Designs", email: "dlrdesigns2012@gmail.com", group: "rfa" },
-  "Antonia Kostelec": { brand: "Kostelec Bridal", email: "antonia@kostelecbridal.com", group: "rfa" },
-  "Anita Ivayo": { brand: "LiBush Africa", email: "ivayodesign@gmail.com", group: "individual" },
-  "Myra Lowder": { brand: "Myra Kim Designs", email: "myralowder@yahoo.com", group: "individual" },
-  "Tamika Huff": { brand: "Nicolay", email: "mikanicolaypr@gmail.com", group: "individual" }
+  "renalizabeth@gmail.com": {
+    displayName: "Rena Hembrock",
+    brand: "Rena Elizabeth",
+    group: "rfa"
+  },
+  "juliekong2121@yahoo.com": {
+    displayName: "Julie Kong",
+    brand: "Sugarcane Sweet Designs",
+    group: "rfa"
+  },
+  "dlrdesigns2012@gmail.com": {
+    displayName: "Decarol l. Randle",
+    brand: "DLR Designs",
+    group: "rfa"
+  },
+  "antonia@kostelecbridal.com": {
+    displayName: "Antonia Kostelec",
+    brand: "Kostelec Bridal",
+    group: "rfa"
+  },
+  "ivayodesign@gmail.com": {
+    displayName: "Anita Ivayo",
+    brand: "LiBush Africa",
+    group: "individual"
+  },
+  "myralowder@yahoo.com": {
+    displayName: "Myra Lowder",
+    brand: "Myra Kim Designs",
+    group: "individual"
+  },
+  "mikanicolaypr@gmail.com": {
+    displayName: "Tamika Huff",
+    brand: "Nicolay",
+    group: "individual"
+  }
 };
 
 // ==============================
@@ -175,7 +57,7 @@ async function fetchSheetData() {
 
 function buildShowcase(rows) {
 
-  const COL_DESIGNER = 1;
+  const COL_EMAIL = 2;
   const COL_MODEL = 3;
   const COL_APPROVAL = 6;
 
@@ -184,42 +66,46 @@ function buildShowcase(rows) {
 
   rows.forEach(row => {
 
-    const designerName = row[COL_DESIGNER]?.toString().trim();
+    const email = row[COL_EMAIL]?.toString().trim().toLowerCase();
     const modelNum = row[COL_MODEL]?.toString().trim();
     const approval = row[COL_APPROVAL]?.toString().toLowerCase();
 
-    if (!EMERGING_NEXT_DESIGNERS[designerName]) return;
+    if (!EMERGING_NEXT_DESIGNERS[email]) return;
     if (!modelNum) return;
 
-    if (!designers[designerName]) {
-      designers[designerName] = { models: [], confirmed: [] };
+    if (!designers[email]) {
+      designers[email] = { models: [], confirmed: [] };
     }
 
-    designers[designerName].models.push(modelNum);
+    designers[email].models.push(modelNum);
 
     if (approval && approval.includes("approved")) {
-      designers[designerName].confirmed.push(modelNum);
+      designers[email].confirmed.push(modelNum);
     }
 
     if (!usage[modelNum]) usage[modelNum] = [];
-    usage[modelNum].push(designerName);
+    usage[modelNum].push(email);
   });
 
-  Object.keys(EMERGING_NEXT_DESIGNERS).forEach(designerName => {
+  // Clear containers
+  document.getElementById("rfa").innerHTML = "";
+  document.getElementById("individual").innerHTML = "";
 
-    const meta = EMERGING_NEXT_DESIGNERS[designerName];
+  Object.keys(EMERGING_NEXT_DESIGNERS).forEach(email => {
+
+    const meta = EMERGING_NEXT_DESIGNERS[email];
     const container = document.getElementById(meta.group);
+
+    const modelList = designers[email]?.models || [];
+    const confirmedList = designers[email]?.confirmed || [];
 
     const card = document.createElement("div");
     card.className = "designer";
 
-    const modelList = designers[designerName]?.models || [];
-    const confirmedList = designers[designerName]?.confirmed || [];
-
     card.innerHTML = `
-      <h2>${designerName}</h2>
+      <h2>${meta.displayName}</h2>
       <h3>${meta.brand}</h3>
-      <div class="email">${meta.email}</div>
+      <div class="email">${email}</div>
       <div class="looks-count">${modelList.length} Looks</div>
     `;
 
@@ -257,6 +143,3 @@ function buildShowcase(rows) {
 fetchSheetData().then(buildShowcase);
 
 </script>
-
-</body>
-</html>
