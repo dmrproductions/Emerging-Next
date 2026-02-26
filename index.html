@@ -1,8 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emerging Next Showcase 2026 - Friday March 13</title>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #fafafa;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0 10px;
+  font-size: 2.2em;
+  color: #222;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 1.1em;
+}
+
+.section-header {
+  background: #333;
+  color: white;
+  padding: 15px 20px;
+  margin: 30px 0 20px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.row-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1800px;
+  margin: 0 auto 40px;
+}
+
+.designer {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.designer h2 {
+  font-size: 1.05em;
+  border-bottom: 2px solid #000;
+  padding-bottom: 6px;
+  margin-bottom: 5px;
+}
+
+.designer h3 {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.designer .email {
+  font-size: 0.8em;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.looks-count {
+  background: #1976d2;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.model {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  background: #f5f5f5;
+  font-size: 0.9em;
+  border-left: 4px solid #ffa726;
+}
+
+.confirmed {
+  background: #e8f5e9 !important;
+  border-left: 4px solid #2e7d32 !important;
+}
+
+.conflict {
+  background: #ffebee !important;
+  border-left: 4px solid #c62828 !important;
+}
+
+.conflict-3way {
+  background: #ff5252 !important;
+  border-left: 4px solid #b71c1c !important;
+  color: white;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 0.7em;
+  margin-left: 8px;
+  font-weight: bold;
+  color: white;
+}
+
+.pending-badge { background: #ffa726; }
+.confirmed-badge { background: #2e7d32; }
+.conflict-badge { background: #c62828; }
+.conflict-3way-badge { background: #b71c1c; }
+
+@media (max-width: 1200px) {
+  .row-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .row-container { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<h1>Emerging Next Showcase</h1>
+<div class="subtitle">Friday, March 13, 2026</div>
+
+<div class="section-header">🎨 Redding Fashion Alliance (Group Presentation)</div>
+<div id="rfa" class="row-container"></div>
+
+<div class="section-header">👤 Individual Designer Presentations</div>
+<div id="individual" class="row-container"></div>
+
 <script>
 
-// ======================================
-// DESIGNERS FOR EMERGING NEXT (BY EMAIL)
-// ======================================
+// ===============================
+// DESIGNERS (FILTER BY EMAIL)
+// ===============================
 const EMERGING_NEXT_DESIGNERS = {
   "renalizabeth@gmail.com": {
     displayName: "Rena Hembrock",
@@ -41,9 +187,9 @@ const EMERGING_NEXT_DESIGNERS = {
   }
 };
 
-// ==============================
+// ===============================
 // GOOGLE SHEET CONFIG
-// ==============================
+// ===============================
 const SHEET_ID = "182FSLFP7ATG_chpzv1thZ9wh_tJEIprsrRgpK1LYG5w";
 const SHEET_NAME = "Designer_Selections";
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
@@ -59,7 +205,7 @@ function buildShowcase(rows) {
 
   const COL_EMAIL = 2;
   const COL_MODEL = 3;
-  const COL_APPROVAL = 6;
+  const COL_ADMIN_APPROVAL = 6;
 
   const designers = {};
   const usage = {};
@@ -68,7 +214,7 @@ function buildShowcase(rows) {
 
     const email = row[COL_EMAIL]?.toString().trim().toLowerCase();
     const modelNum = row[COL_MODEL]?.toString().trim();
-    const approval = row[COL_APPROVAL]?.toString().toLowerCase();
+    const approval = row[COL_ADMIN_APPROVAL]?.toString().toLowerCase();
 
     if (!EMERGING_NEXT_DESIGNERS[email]) return;
     if (!modelNum) return;
@@ -87,7 +233,6 @@ function buildShowcase(rows) {
     usage[modelNum].push(email);
   });
 
-  // Clear containers
   document.getElementById("rfa").innerHTML = "";
   document.getElementById("individual").innerHTML = "";
 
@@ -143,3 +288,6 @@ function buildShowcase(rows) {
 fetchSheetData().then(buildShowcase);
 
 </script>
+
+</body>
+</html>
